@@ -13,6 +13,10 @@ class UserDatatable < AjaxDatatablesRails::Base
 
   private
 
+  def sort_records records
+    params[:sort_customize] ? super.order(id: :asc) : super
+  end
+
   def data
     records.map do |record|
       {
