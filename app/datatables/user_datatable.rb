@@ -17,6 +17,10 @@ class UserDatatable < AjaxDatatablesRails::Base
     params[:sort_customize] ? super.order(id: :asc) : super
   end
 
+  def filter_records records
+    params[:filter_customize] ? super.where("id > 0") : super
+  end
+
   def data
     records.map do |record|
       {
