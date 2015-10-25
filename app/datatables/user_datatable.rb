@@ -13,11 +13,11 @@ class UserDatatable < AjaxDatatablesRails::Base
 
   def data
     records.map do |record|
-      [
-        record.name,
-        record.phone,
-        record.address
-      ]
+      {
+        name: record.name,
+        phone: record.phone,
+        address: record.address
+      }
     end
   end
 
